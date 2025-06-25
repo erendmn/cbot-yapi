@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cbot Organizasyon Yapısı</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F8F9FC;
+      color: #2c3e50;
+      padding: 40px;
+      scroll-behavior: smooth;
+    }
+    .tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+    .tree-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+    .children {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .node {
+      background: #ffffff;
+      border: 1px solid #d0d8e4;
+      border-radius: 12px;
+      padding: 16px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      width: 250px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .node:hover {
+      transform: translateY(-3px);
+    }
+    .node-title {
+      font-weight: bold;
+      font-size: 16px;
+      color: #34495e;
+    }
+    .node-desc {
+      font-size: 13px;
+      margin-top: 6px;
+      color: #566573;
+    }
+    section {
+      background-color: #fff;
+      border: 1px solid #d0d8e4;
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 40px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #34495e;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+    h3 {
+      margin-top: 20px;
+      color: #2c3e50;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #d0d8e4;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-top: 40px;
+    }
+    th, td {
+      border: 1px solid #d0d8e4;
+      padding: 14px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    th {
+      background-color: #e9edf3;
+      color: #34495e;
+    }
+    caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="tree">
+    <div class="tree-title">Cbot Organizasyon Yapısı</div>
+    <div class="children">
+      <div class="node"><div class="node-title">Business Development</div><div class="node-desc">Ürün stratejisi ve fırsat yönetimi</div></div>
+      <div class="node" onclick="document.getElementById('project-delivery').scrollIntoView();"><div class="node-title">Project Delivery</div><div class="node-desc">Ürün teslimi ve kapsam yönetimi</div></div>
+      <div class="node" onclick="document.getElementById('customer-growth').scrollIntoView();"><div class="node-title">Customer Growth</div><div class="node-desc">Müşteri başarı ve büyüme takibi</div></div>
+      <div class="node" onclick="document.getElementById('service-operations').scrollIntoView();"><div class="node-title">Service Operations</div><div class="node-desc">Teknik destek ve sistem sürekliliği</div></div>
+      <div class="node"><div class="node-title">Sales</div><div class="node-desc">Yeni müşteri kazanımı</div></div>
+      <div class="node"><div class="node-title">Finance</div><div class="node-desc">Bütçe ve faturalama süreçleri</div></div>
+      <div class="node"><div class="node-title">HR</div><div class="node-desc">Yetenek ve süreç yönetimi</div></div>
+    </div>
+  </div>
+
+  <section id="project-delivery">
+    <h2>Project Delivery</h2>
+    <h3>🎯 Amaç</h3>
+    <p>Ürün teslimi, kapsam yönetimi</p>
+    <h3>📦 Kapsam</h3>
+    <p>Proje planı, takvim, roadmap koordinasyonu</p>
+    <h3>📕 Araçlar</h3>
+    <p>Jira, ClickUp, ürün yönetim sistemleri</p>
+    <h3>🛰️ İletişim Tarzı</h3>
+    <p>Satış sonrası teknik yönlendirme</p>
+    <h3>📈 KPI Odakları</h3>
+    <p>Proje zamanında teslim, kapsam tamlığı</p>
+    <h3>🎯 Hedef Kitle</h3>
+    <p>Yeni onboard olan projeler</p>
+  </section>
+
+  <table>
+    <caption>📊 Karşılaştırma Tablosu</caption>
+    <thead>
+      <tr>
+        <th>Alan</th>
+        <th>Project Delivery</th>
+        <th>Customer Growth</th>
+        <th>Service Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🎯 Amaç</td>
+        <td>Ürün teslimi, kapsam yönetimi</td>
+        <td>Müşteri memnuniyeti, başarı takibi, yenileme ve büyüme</td>
+        <td>Teknik destek, ürün kurulumları, işlem takibi</td>
+      </tr>
+      <tr>
+        <td>📦 Kapsam</td>
+        <td>Proje planı, takvim, roadmap koordinasyonu</td>
+        <td>Dedike müşteri yönetimi, KPI izleme, upsell fırsatları, ticket koordinasyonu</td>
+        <td>SLA'li ticketlar, POC hazırlıkları, hata analizleri, L1/L2</td>
+      </tr>
+      <tr>
+        <td>📕 Araçlar</td>
+        <td>Jira, ClickUp, ürün yönetim sistemleri</td>
+        <td>CRM, dashboard, müşteri içgörü araçları</td>
+        <td>Ticketing sistemleri, log analiz araçları</td>
+      </tr>
+      <tr>
+        <td>🛰️ İletişim</td>
+        <td>Satış sonrası teknik yönlendirme</td>
+        <td>Periyodik toplantılar, stratejik görüşmeler</td>
+        <td>Portal/Slack/mail anlık destek</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
