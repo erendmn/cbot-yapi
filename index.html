@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cbot Organizasyon Yapısı</title>
+  <title>Cbot Organizasyon ve KPI/OKR Tabloları</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -61,10 +61,19 @@
       margin-bottom: 60px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
+    section {
+      background-color: #fff;
+      border: 1px solid #d0d8e4;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
     h2 {
       color: #34495e;
       border-bottom: 1px solid #ddd;
       padding-bottom: 8px;
+      text-align: center;
     }
     h3 {
       margin-top: 20px;
@@ -79,6 +88,7 @@
       background: #ffffff;
       border: 1px solid #d0d8e4;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-top: 32px;
     }
     th, td {
       border: 1px solid #d0d8e4;
@@ -97,6 +107,11 @@
       font-size: 20px;
       margin-bottom: 12px;
     }
+
+    td:focus, th:focus, caption:focus, h2:focus, div:focus {
+      outline: 2px dashed #3498db;
+      background-color: #ecf6fd;
+    }
   </style>
 </head>
 <body>
@@ -108,15 +123,15 @@
         <div class="node-title">Business Development</div>
         <div class="node-desc">Ürün stratejisi ve fırsat yönetimi</div>
       </div>
-      <div class="node" onclick="document.getElementById('project-delivery').scrollIntoView();">
+      <div class="node" onclick="document.getElementById('kpi-table').scrollIntoView();">
         <div class="node-title">Project Delivery</div>
         <div class="node-desc">Ürün teslimi ve kapsam yönetimi</div>
       </div>
-      <div class="node" onclick="document.getElementById('customer-growth').scrollIntoView();">
+      <div class="node" onclick="document.getElementById('kpi-table').scrollIntoView();">
         <div class="node-title">Customer Growth</div>
         <div class="node-desc">Müşteri başarı ve büyüme takibi</div>
       </div>
-      <div class="node" onclick="document.getElementById('service-operations').scrollIntoView();">
+      <div class="node" onclick="document.getElementById('kpi-table').scrollIntoView();">
         <div class="node-title">Service Operations</div>
         <div class="node-desc">Teknik destek ve sistem sürekliliği</div>
       </div>
@@ -135,9 +150,8 @@
     </div>
   </div>
 
-  <!-- Karşılaştırma Tablosu -->
   <table>
-    <caption>📊 Karşılaştırma Tablosu</caption>
+    <h2>📊 Karşılaştırma Tablosu</h2>
     <thead>
       <tr>
         <th>Alan</th>
@@ -147,68 +161,71 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>🎯 Amaç</td>
-        <td>Ürün teslimi, kapsam yönetimi</td>
-        <td>Müşteri memnuniyeti, başarı takibi, yenileme ve büyüme</td>
-        <td>Teknik destek, ürün kurulumları, işlem takibi</td>
-      </tr>
-      <tr>
-        <td>📦 Kapsam</td>
-        <td>Proje planı, takvim, roadmap koordinasyonu</td>
-        <td>Dedike müşteri yönetimi, KPI izleme, upsell fırsatları, ticket koordinasyonu</td>
-        <td>SLA'li ticketlar, POC hazırlıkları, hata analizleri, L1/L2</td>
-      </tr>
-      <tr>
-        <td>🧰 Araçlar</td>
-        <td>Jira, ClickUp, ürün yönetim sistemleri</td>
-        <td>CRM, dashboard, müşteri içgörü araçları</td>
-        <td>Ticketing sistemleri, log analiz araçları</td>
-      </tr>
-      <tr>
-        <td>📡 İletişim</td>
-        <td>Satış sonrası teknik yönlendirme</td>
-        <td>Periyodik toplantılar, stratejik görüşmeler</td>
-        <td>Portal/Slack/mail anlık destek</td>
-      </tr>
-      <tr>
-        <td>📊 KPI</td>
-        <td>Proje zamanında teslim, kapsam tamlığı</td>
-        <td>NPS, yenileme oranı, kullanım oranı, churn</td>
-        <td>SLA uyumu, çözüm süresi, ilk yanıt süresi</td>
-      </tr>
-      <tr>
-        <td>🎯 Hedef Kitle</td>
-        <td>Yeni onboard olan projeler</td>
-        <td>Mevcut dedike müşteriler</td>
-        <td>Dedike olmayan + POC müşterileri</td>
-      </tr>
-      <tr>
-        <td>🏷️ Etiketler</td>
-        <td>Teslimat, proje, kapsam</td>
-        <td>Customer Success, Analysts</td>
-        <td>Support, POC, SLA</td>
-      </tr>
-      <tr>
-        <td>✅ Görevler</td>
-        <td>Talep analizi, proje planı, teslimat takibi</td>
-        <td>Müşteri takibi, upsell önerileri, kullanım analizi</td>
-        <td>Ticket çözümü, log analizi, test süreçleri</td>
-      </tr>
-      <tr>
-        <td>🚫 Hariç</td>
-        <td>Teknik destek, memnuniyet takibi</td>
-        <td>POC kurulumları, log analizleri</td>
-        <td>Stratejik yönlendirme, upsell</td>
-      </tr>
-      <tr>
-        <td>📌 Odak Alanları</td>
-        <td>Zamanlama, proje verimliliği</td>
-        <td>Müşteri memnuniyeti, churn azaltma</td>
-        <td>Stabilite, hızlı çözüm</td>
-      </tr>
+      <tr><td>🎯 Amaç</td><td>Ürün teslimi, kapsam yönetimi</td><td>Müşteri memnuniyeti, başarı takibi, yenileme ve büyüme</td><td>Teknik destek, ürün kurulumları, işlem takibi</td></tr>
+      <tr><td>📦 Kapsam</td><td>Proje planı, takvim, roadmap koordinasyonu</td><td>Dedike müşteri yönetimi, KPI izleme, upsell fırsatları, ticket koordinasyonu</td><td>SLA'li ticketlar, POC hazırlıkları, hata analizleri, L1/L2</td></tr>
+      <tr><td>🧰 Araçlar</td><td>Jira, ClickUp, ürün yönetim sistemleri</td><td>CRM, dashboard, müşteri içgörü araçları</td><td>Ticketing sistemleri, log analiz araçları</td></tr>
+      <tr><td>📡 İletişim</td><td>Satış sonrası teknik yönlendirme</td><td>Periyodik toplantılar, stratejik görüşmeler</td><td>Portal/Slack/mail anlık destek</td></tr>
+      <tr><td>📈 KPI</td><td>Proje zamanında teslim, kapsam tamlığı</td><td>NPS, yenileme oranı, kullanım oranı, churn</td><td>SLA uyumu, çözüm süresi, ilk yanıt süresi</td></tr>
+      <tr><td>🎯 Hedef Kitle</td><td>Yeni onboard olan projeler</td><td>Mevcut dedike müşteriler</td><td>Dedike olmayan + POC müşterileri</td></tr>
+      <tr><td>🏷️ Etiketler</td><td>Teslimat, proje, kapsam</td><td>Customer Success, Analysts</td><td>Support, POC, SLA</td></tr>
+      <tr><td>✅ Görevler</td><td>Talep analizi, proje planı, teslimat takibi</td><td>Müşteri takibi, upsell önerileri, kullanım analizi</td><td>Ticket çözümü, log analizi, test süreçleri</td></tr>
+      <tr><td>🚫 Hariç</td><td>Teknik destek, memnuniyet takibi</td><td>POC kurulumları, log analizleri</td><td>Stratejik yönlendirme, upsell</td></tr>
+      <tr><td>📌 Odak Alanları</td><td>Zamanlama, proje verimliliği</td><td>Müşteri memnuniyeti, churn azaltma</td><td>Stabilite, hızlı çözüm</td></tr>
     </tbody>
   </table>
+
+  <h2 id="kpi-table">📈 KPI Tablosu</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Project Delivery</th>
+        <th>Customer Growth</th>
+        <th>Service Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Proje zamanında teslim oranı</td><td>NPS skoru</td><td>SLA uyumu</td></tr>
+      <tr><td>2</td><td>Roadmap'e uyum yüzdesi</td><td>Yenileme oranı</td><td>İlk yanıt süresi</td></tr>
+      <tr><td>3</td><td>Planlanan vs gerçekleşen görev sayısı</td><td>Churn oranı</td><td>Ortalama çözüm süresi</td></tr>
+      <tr><td>4</td><td>Scope değişiklik sayısı</td><td>Toplantı katılım oranı</td><td>Açık ticket sayısı</td></tr>
+      <tr><td>5</td><td>Geciken task yüzdesi</td><td>Kullanım sıklığı</td><td>POC kurulum süresi</td></tr>
+      <tr><td>6</td><td>Sprint tamamlanma oranı</td><td>Destek sonrası memnuniyet skoru</td><td>Hatalı yönlendirme oranı</td></tr>
+      <tr><td>7</td><td>Stakeholder memnuniyeti</td><td>Upsell başarısı</td><td>İşlem memnuniyet skoru</td></tr>
+      <tr><td>8</td><td>Revizyon sayısı</td><td>Analiz gönderim sıklığı</td><td>Otomasyona alınan işlem sayısı</td></tr>
+      <tr><td>9</td><td>Toplam proje süreci</td><td>Ticket geri dönüş süresi</td><td>L1 çözüm oranı</td></tr>
+      <tr><td>10</td><td>UAT başarı oranı</td><td>Toplantı başına aksiyon sayısı</td><td>Test geçiş başarısı</td></tr>
+    </tbody>
+  </table>
+
+  <h2>🎯 OKR Tablosu</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Project Delivery</th>
+        <th>Customer Growth</th>
+        <th>Service Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Yeni proje yönetim metodolojisi uygulamak</td><td>NPS skorunu %20 artırmak</td><td>Çözüm süresini %30 azaltmak</td></tr>
+      <tr><td>2</td><td>Proje teslimat süresini %20 azaltmak</td><td>Churn’ü %50 azaltmak</td><td>SLA dışı işlem sayısını %80 azaltmak</td></tr>
+      <tr><td>3</td><td>Planlama eğitimi tamamlamak</td><td>Yıllık büyüme planı oluşturmak</td><td>Hata analiz dokümantasyonu oluşturmak</td></tr>
+      <tr><td>4</td><td>Memnuniyeti %85 üzerine çıkarmak</td><td>Quarterly review rutini başlatmak</td><td>Slack bot ile otomatik destek önerisi</td></tr>
+      <tr><td>5</td><td>3 teslimat şablonu oluşturmak</td><td>3 yeni kullanım analizi şablonu</td><td>3 POC sürecini dökümante etmek</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    // Sayfadaki tüm belirli etiketleri düzenlenebilir hale getir
+    window.onload = () => {
+      const tags = ['td', 'th', 'caption', 'h1', 'h2', 'h3', 'div', 'span', 'p'];
+      tags.forEach(tag => {
+        document.querySelectorAll(tag).forEach(el => el.setAttribute('contenteditable', 'true'));
+      });
+    };
+  </script>
 
 </body>
 </html>
