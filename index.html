@@ -1,14 +1,34 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CBOT Organizasyon ve KPI/OKR Tabloları</title>
   <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #2c3e50;
+      --card-bg: #ffffff;
+      --border-color: #d0d8e4;
+      --hover-bg: #ecf6fd;
+      --header-bg: #e9edf3;
+      --focus-outline: #3498db;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1e1e2f;
+      --text-color: #f1f1f1;
+      --card-bg: #2c2f3e;
+      --border-color: #3e4a5e;
+      --hover-bg: #2e3b51;
+      --header-bg: #34495e;
+      --focus-outline: #5dade2;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background-color: #F8F9FC;
-      color: #2c3e50;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       padding: 40px;
       scroll-behavior: smooth;
     }
@@ -42,6 +62,11 @@
       color: white;
     }
 
+    .btn-theme {
+      background-color: #f39c12;
+      color: white;
+    }
+
     .btn:hover {
       opacity: 0.9;
     }
@@ -52,20 +77,23 @@
       align-items: center;
       margin-bottom: 60px;
     }
+
     .tree-title {
       font-size: 22px;
       font-weight: bold;
       margin-bottom: 24px;
     }
+
     .children {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
     }
+
     .node {
-      background: #ffffff;
-      border: 1px solid #d0d8e4;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 16px 24px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -74,58 +102,43 @@
       cursor: pointer;
       transition: transform 0.2s;
     }
+
     .node:hover {
       transform: translateY(-3px);
     }
+
     .node-title {
       font-weight: bold;
       font-size: 16px;
-      color: #34495e;
+      color: var(--text-color);
     }
+
     .node-desc {
       font-size: 13px;
       margin-top: 6px;
-      color: #566573;
+      color: var(--text-color);
     }
-    section {
-      background-color: #fff;
-      border: 1px solid #d0d8e4;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 60px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    h2 {
-      color: #34495e;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 8px;
-      text-align: center;
-    }
-    h3 {
-      margin-top: 20px;
-      color: #2c3e50;
-    }
-    ul {
-      padding-left: 20px;
-    }
+
     table {
       border-collapse: collapse;
       width: 100%;
-      background: #ffffff;
-      border: 1px solid #d0d8e4;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
       margin-top: 32px;
     }
+
     th, td {
-      border: 1px solid #d0d8e4;
+      border: 1px solid var(--border-color);
       padding: 14px;
       text-align: center;
       vertical-align: middle;
+      color: var(--text-color);
     }
+
     th {
-      background-color: #e9edf3;
-      color: #34495e;
+      background-color: var(--header-bg);
     }
+
     caption {
       caption-side: top;
       text-align: center;
@@ -133,51 +146,38 @@
       font-size: 20px;
       margin-bottom: 12px;
     }
+
+    h2 {
+      color: var(--text-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      text-align: center;
+    }
+
     td:focus, th:focus, caption:focus, h2:focus, div:focus {
-      outline: 2px dashed #3498db;
-      background-color: #ecf6fd;
+      outline: 2px dashed var(--focus-outline);
+      background-color: var(--hover-bg);
     }
   </style>
 </head>
 <body>
 
-  <!-- Sabit Sağ Üst Butonlar -->
   <div class="edit-buttons">
     <button class="btn btn-edit" onclick="enableEditing()">🖊️ Düzenle</button>
     <button class="btn btn-save" onclick="saveHTML()">💾 Kaydet</button>
+    <button class="btn btn-theme" onclick="toggleTheme()">🌓 Tema</button>
   </div>
 
   <div class="tree">
     <div class="tree-title">CBOT Organizasyon Yapısı</div>
     <div class="children">
-      <div class="node">
-        <div class="node-title">Business Development</div>
-        <div class="node-desc">Ürün stratejisi ve fırsat yönetimi</div>
-      </div>
-      <div class="node">
-        <div class="node-title">Project Delivery</div>
-        <div class="node-desc">Ürün teslimi ve kapsam yönetimi</div>
-      </div>
-      <div class="node">
-        <div class="node-title">Customer Growth</div>
-        <div class="node-desc">Müşteri başarı ve büyüme takibi</div>
-      </div>
-      <div class="node">
-        <div class="node-title">Service Operations</div>
-        <div class="node-desc">Teknik destek ve sistem sürekliliği</div>
-      </div>
-      <div class="node">
-        <div class="node-title">Sales</div>
-        <div class="node-desc">Yeni müşteri kazanımı</div>
-      </div>
-      <div class="node">
-        <div class="node-title">Finance</div>
-        <div class="node-desc">Bütçe ve faturalama süreçleri</div>
-      </div>
-      <div class="node">
-        <div class="node-title">HR</div>
-        <div class="node-desc">Yetenek ve süreç yönetimi</div>
-      </div>
+      <div class="node"><div class="node-title">Business Development</div><div class="node-desc">Ürün stratejisi ve fırsat yönetimi</div></div>
+      <div class="node"><div class="node-title">Project Delivery</div><div class="node-desc">Ürün teslimi ve kapsam yönetimi</div></div>
+      <div class="node"><div class="node-title">Customer Growth</div><div class="node-desc">Müşteri başarı ve büyüme takibi</div></div>
+      <div class="node"><div class="node-title">Service Operations</div><div class="node-desc">Teknik destek ve sistem sürekliliği</div></div>
+      <div class="node"><div class="node-title">Sales</div><div class="node-desc">Yeni müşteri kazanımı</div></div>
+      <div class="node"><div class="node-title">Finance</div><div class="node-desc">Bütçe ve faturalama süreçleri</div></div>
+      <div class="node"><div class="node-title">HR</div><div class="node-desc">Yetenek ve süreç yönetimi</div></div>
     </div>
   </div>
 <table>
@@ -246,14 +246,13 @@
       <tr><td>5</td><td>3 teslimat şablonu oluşturmak</td><td>3 yeni kullanım analizi şablonu</td><td>3 POC sürecini dökümante etmek</td></tr>
     </tbody>
   </table>
-
   <script>
     function enableEditing() {
       const tags = ['td', 'th', 'caption', 'h1', 'h2', 'h3', 'div', 'span', 'p'];
       tags.forEach(tag => {
         document.querySelectorAll(tag).forEach(el => el.setAttribute('contenteditable', 'true'));
       });
-      alert("Düzenleme modu aktif. Kaydetmek için sağ üstteki butona bas.");
+      alert("Düzenleme modu aktif!");
     }
 
     function saveHTML() {
@@ -265,6 +264,22 @@
       a.click();
       URL.revokeObjectURL(url);
     }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    }
+
+    window.onload = () => {
+      const saved = localStorage.getItem("theme");
+      const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+      setTheme(saved || system);
+    };
   </script>
 
 </body>
