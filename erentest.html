@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="tr"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Cbot Organizasyon Yapısı&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #F8F9FC;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #2c3e50;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>scroll-behavior: smooth;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Organizasyon Şeması */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tree {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tree-title {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 22px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.children {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.node {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #d0d8e4;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 16px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 8px rgba(0,0,0,0.05);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 250px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: transform 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.node:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: translateY(-3px);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.node-title {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #34495e;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.node-desc {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #566573;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Detay Bölümleri */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>section {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #d0d8e4;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 8px rgba(0,0,0,0.05);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h2 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #34495e;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h3 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #2c3e50;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>ul {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding-left: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Karşılaştırma Tablosu */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>table {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-collapse: collapse;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #d0d8e4;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 8px rgba(0,0,0,0.05);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>th, td {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #d0d8e4;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>vertical-align: middle;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>th {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background-color: #e9edf3;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #34495e;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>caption {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>caption-side: top;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Organizasyon Şeması --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="tree"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="tree-title"&gt;Cbot Organizasyon Yapısı&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="children"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="node"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-title"&gt;Business Development&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-desc"&gt;Ürün stratejisi ve fırsat yönetimi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="node" onclick="document.getElementById('project-delivery').scrollIntoView();"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-title"&gt;Project Delivery&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-desc"&gt;Ürün teslimi ve kapsam yönetimi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="node" onclick="document.getElementById('customer-growth').scrollIntoView();"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-title"&gt;Customer Growth&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-desc"&gt;Müşteri başarı ve büyüme takibi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="node" onclick="document.getElementById('service-operations').scrollIntoView();"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-title"&gt;Service Operations&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-desc"&gt;Teknik destek ve sistem sürekliliği&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="node"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-title"&gt;Sales&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-desc"&gt;Yeni müşteri kazanımı&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="node"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-title"&gt;Finance&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-desc"&gt;Bütçe ve faturalama süreçleri&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="node"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-title"&gt;HR&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="node-desc"&gt;Yetenek ve süreç yönetimi&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Project Delivery --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="project-delivery"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Project Delivery&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🎯 Amaç&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Ürün teslimi, kapsam yönetimi&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📦 Kapsam&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Proje planı, takvim, roadmap koordinasyonu&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🧰 Araçlar&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Jira, ClickUp, ürün yönetim sistemleri&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📡 İletişim Tarzı&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Satış sonrası teknik yönlendirme&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📊 KPI Odakları&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Proje zamanında teslim, kapsam tamlığı&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🎯 Hedef Kitle&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Yeni onboard olan projeler&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🏷️ Etiketler&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Teslimat, proje, kapsam&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;✅ Görev ve Sorumluluklar&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Talep analizi&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Proje planı&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Roadmap koordinasyonu&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Teslimat takibi&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🚫 Hariç Olanlar&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Teknik destek, canlı hata çözümü, kullanım verisi analizi, memnuniyet takibi&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📌 Odak Alanları&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Zamanlama, teslimat doğruluğu, proje verimliliği&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Customer Growth --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="customer-growth"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Customer Growth&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🎯 Amaç&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Müşteri memnuniyeti, başarı takibi, yenileme ve büyüme&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📦 Kapsam&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Dedike müşteri yönetimi, KPI izleme, upsell fırsatları, ticket koordinasyonu&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🧰 Araçlar&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;CRM, dashboard, müşteri içgörü araçları&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📡 İletişim Tarzı&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Periyodik müşteri toplantıları, stratejik görüşmeler&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📊 KPI Odakları&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;NPS, yenileme oranı, kullanım oranı, churn&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🎯 Hedef Kitle&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Mevcut dedike müşteriler&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🏷️ Etiketler&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Customer Success, Dedicated Analysts&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;✅ Görev ve Sorumluluklar&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Müşteri takibi&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Toplantı&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Yenileme/upsell önerileri&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Kullanım analizi&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Dedike ticket koordinasyonu&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🚫 Hariç Olanlar&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Teknik POC kurulumları, sistem log analizleri&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📌 Odak Alanları&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Müşteri memnuniyeti, kullanım etkinliği, churn azaltma&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Service Operations --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="service-operations"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Service Operations&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🎯 Amaç&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Teknik destek, ürün kurulumları, işlem takibi&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📦 Kapsam&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;SLA'li ticketlar, POC hazırlıkları, hata analizleri, L1/L2&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🧰 Araçlar&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Ticketing sistemleri, log analiz araçları&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📡 İletişim Tarzı&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Portal/Slack/mail üzerinden anlık teknik destek&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📊 KPI Odakları&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;SLA uyumu, çözüm süresi, ilk yanıt süresi&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🎯 Hedef Kitle&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Dedike olmayan müşteriler + yeni POC müşterileri&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🏷️ Etiketler&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Support, POC, SLA&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;✅ Görev ve Sorumluluklar&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Ticket çözümü&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;POC hazırlama&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Log analizi&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li&gt;Test süreçleri&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;🚫 Hariç Olanlar&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Kullanım içgörüsü sunumu, stratejik yönlendirme, upsell&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h3&gt;📌 Odak Alanları&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p&gt;Teknik stabilite, hızlı çözüm, sistem sürekliliği&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Karşılaştırma Tablosu --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;caption&gt;📊 Karşılaştırma Tablosu&lt;/caption&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;th&gt;Alan&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;th&gt;Project Delivery&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;th&gt;Customer Growth&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;th&gt;Service Operations&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;🎯 Amaç&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Ürün teslimi, kapsam yönetimi&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Müşteri memnuniyeti, başarı takibi, yenileme ve büyüme&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Teknik destek, ürün kurulumları, işlem takibi&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;📦 Kapsam&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Proje planı, takvim, roadmap koordinasyonu&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Dedike müşteri yönetimi, KPI izleme, upsell fırsatları, ticket koordinasyonu&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;SLA'li ticketlar, POC hazırlıkları, hata analizleri, L1/L2&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;🧰 Araçlar&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Jira, ClickUp, ürün yönetim sistemleri&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;CRM, dashboard, müşteri içgörü araçları&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Ticketing sistemleri, log analiz araçları&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;📡 İletişim&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Satış sonrası teknik yönlendirme&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Periyodik toplantılar, stratejik görüşmeler&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Portal/Slack/mail anlık destek&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;📊 KPI&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Proje zamanında teslim, kapsam tamlığı&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;NPS, yenileme oranı, kullanım oranı, churn&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;SLA uyumu, çözüm süresi, ilk yanıt süresi&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;🎯 Hedef Kitle&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Yeni onboard olan projeler&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Mevcut dedike müşteriler&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Dedike olmayan + POC müşterileri&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;🏷️ Etiketler&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Teslimat, proje, kapsam&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Customer Success, Analysts&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Support, POC, SLA&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;✅ Görevler&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Talep analizi, proje planı, teslimat takibi&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Müşteri takibi, upsell önerileri, kullanım analizi&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Ticket çözümü, log analizi, test süreçleri&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;🚫 Hariç&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Teknik destek, memnuniyet takibi&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;POC kurulumları, log analizleri&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Stratejik yönlendirme, upsell&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;📌 Odak Alanları&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Zamanlama, proje verimliliği&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Müşteri memnuniyeti, churn azaltma&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;td&gt;Stabilite, hızlı çözüm&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/table&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
