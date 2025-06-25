@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cbot Organizasyon ve KPI/OKR Tabloları</title>
+  <title>CBOT Organizasyon ve KPI/OKR Tabloları</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,6 +12,40 @@
       padding: 40px;
       scroll-behavior: smooth;
     }
+
+    .edit-buttons {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 12px;
+      z-index: 9999;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: background-color 0.2s;
+    }
+
+    .btn-edit {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .btn-save {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
     .tree {
       display: flex;
       flex-direction: column;
@@ -61,14 +95,6 @@
       margin-bottom: 60px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    section {
-      background-color: #fff;
-      border: 1px solid #d0d8e4;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 60px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
     h2 {
       color: #34495e;
       border-bottom: 1px solid #ddd;
@@ -107,7 +133,6 @@
       font-size: 20px;
       margin-bottom: 12px;
     }
-
     td:focus, th:focus, caption:focus, h2:focus, div:focus {
       outline: 2px dashed #3498db;
       background-color: #ecf6fd;
@@ -116,22 +141,28 @@
 </head>
 <body>
 
+  <!-- Sabit Sağ Üst Butonlar -->
+  <div class="edit-buttons">
+    <button class="btn btn-edit" onclick="enableEditing()">🖊️ Düzenle</button>
+    <button class="btn btn-save" onclick="saveHTML()">💾 Kaydet</button>
+  </div>
+
   <div class="tree">
-    <div class="tree-title">Cbot Organizasyon Yapısı</div>
+    <div class="tree-title">CBOT Organizasyon Yapısı</div>
     <div class="children">
       <div class="node">
         <div class="node-title">Business Development</div>
         <div class="node-desc">Ürün stratejisi ve fırsat yönetimi</div>
       </div>
-      <div class="node" onclick="document.getElementById('kpi-table').scrollIntoView();">
+      <div class="node">
         <div class="node-title">Project Delivery</div>
         <div class="node-desc">Ürün teslimi ve kapsam yönetimi</div>
       </div>
-      <div class="node" onclick="document.getElementById('kpi-table').scrollIntoView();">
+      <div class="node">
         <div class="node-title">Customer Growth</div>
         <div class="node-desc">Müşteri başarı ve büyüme takibi</div>
       </div>
-      <div class="node" onclick="document.getElementById('kpi-table').scrollIntoView();">
+      <div class="node">
         <div class="node-title">Service Operations</div>
         <div class="node-desc">Teknik destek ve sistem sürekliliği</div>
       </div>
@@ -149,8 +180,7 @@
       </div>
     </div>
   </div>
-
-  <table>
+<table>
     <h2>📊 Karşılaştırma Tablosu</h2>
     <thead>
       <tr>
@@ -218,13 +248,23 @@
   </table>
 
   <script>
-    // Sayfadaki tüm belirli etiketleri düzenlenebilir hale getir
-    window.onload = () => {
+    function enableEditing() {
       const tags = ['td', 'th', 'caption', 'h1', 'h2', 'h3', 'div', 'span', 'p'];
       tags.forEach(tag => {
         document.querySelectorAll(tag).forEach(el => el.setAttribute('contenteditable', 'true'));
       });
-    };
+      alert("Düzenleme modu aktif. Kaydetmek için sağ üstteki butona bas.");
+    }
+
+    function saveHTML() {
+      const blob = new Blob([document.documentElement.outerHTML], { type: "text/html" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "cbot-organizasyon.html";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
   </script>
 
 </body>
