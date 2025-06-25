@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Cbot Organizasyon Yapısı</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #F8F9FC;
+      color: #2c3e50;
+      padding: 40px;
+      scroll-behavior: smooth;
+    }
+
+    /* Organizasyon Şeması */
+    .tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+    .tree-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 24px;
+    }
+    .children {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .node {
+      background: #ffffff;
+      border: 1px solid #d0d8e4;
+      border-radius: 12px;
+      padding: 16px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      width: 250px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .node:hover {
+      transform: translateY(-3px);
+    }
+    .node-title {
+      font-weight: bold;
+      font-size: 16px;
+      color: #34495e;
+    }
+    .node-desc {
+      font-size: 13px;
+      margin-top: 6px;
+      color: #566573;
+    }
+
+    /* Detay Bölümleri */
+    section {
+      background-color: #fff;
+      border: 1px solid #d0d8e4;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 60px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    h2 {
+      color: #34495e;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+    h3 {
+      margin-top: 20px;
+      color: #2c3e50;
+    }
+    ul {
+      padding-left: 20px;
+    }
+
+    /* Karşılaştırma Tablosu */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: #ffffff;
+      border: 1px solid #d0d8e4;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    th, td {
+      border: 1px solid #d0d8e4;
+      padding: 14px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    th {
+      background-color: #e9edf3;
+      color: #34495e;
+    }
+    caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Organizasyon Şeması -->
+  <div class="tree">
+    <div class="tree-title">Cbot Organizasyon Yapısı</div>
+    <div class="children">
+          <div class="node">
+        <div class="node-title">Business Development</div>
+        <div class="node-desc">Ürün stratejisi ve fırsat yönetimi</div>
+      </div>
+      <div class="node" onclick="document.getElementById('project-delivery').scrollIntoView();">
+        <div class="node-title">Project Delivery</div>
+        <div class="node-desc">Ürün teslimi ve kapsam yönetimi</div>
+      </div>
+      <div class="node" onclick="document.getElementById('customer-growth').scrollIntoView();">
+        <div class="node-title">Customer Growth</div>
+        <div class="node-desc">Müşteri başarı ve büyüme takibi</div>
+      </div>
+      <div class="node" onclick="document.getElementById('service-operations').scrollIntoView();">
+        <div class="node-title">Service Operations</div>
+        <div class="node-desc">Teknik destek ve sistem sürekliliği</div>
+      </div>
+
+      <div class="node">
+        <div class="node-title">Sales</div>
+        <div class="node-desc">Yeni müşteri kazanımı</div>
+      </div>
+      <div class="node">
+        <div class="node-title">Finance</div>
+        <div class="node-desc">Bütçe ve faturalama süreçleri</div>
+      </div>
+      <div class="node">
+        <div class="node-title">HR</div>
+        <div class="node-desc">Yetenek ve süreç yönetimi</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Delivery -->
+  <section id="project-delivery">
+    <h2>Project Delivery</h2>
+    <h3>🎯 Amaç</h3>
+    <p>Ürün teslimi, kapsam yönetimi</p>
+    <h3>📦 Kapsam</h3>
+    <p>Proje planı, takvim, roadmap koordinasyonu</p>
+    <h3>🧰 Araçlar</h3>
+    <p>Jira, ClickUp, ürün yönetim sistemleri</p>
+    <h3>📡 İletişim Tarzı</h3>
+    <p>Satış sonrası teknik yönlendirme</p>
+    <h3>📊 KPI Odakları</h3>
+    <p>Proje zamanında teslim, kapsam tamlığı</p>
+    <h3>🎯 Hedef Kitle</h3>
+    <p>Yeni onboard olan projeler</p>
+    <h3>🏷️ Etiketler</h3>
+    <p>Teslimat, proje, kapsam</p>
+    <h3>✅ Görev ve Sorumluluklar</h3>
+    <ul>
+      <li>Talep analizi</li>
+      <li>Proje planı</li>
+      <li>Roadmap koordinasyonu</li>
+      <li>Teslimat takibi</li>
+    </ul>
+    <h3>🚫 Hariç Olanlar</h3>
+    <p>Teknik destek, canlı hata çözümü, kullanım verisi analizi, memnuniyet takibi</p>
+    <h3>📌 Odak Alanları</h3>
+    <p>Zamanlama, teslimat doğruluğu, proje verimliliği</p>
+  </section>
+
+  <!-- Customer Growth -->
+  <section id="customer-growth">
+    <h2>Customer Growth</h2>
+    <h3>🎯 Amaç</h3>
+    <p>Müşteri memnuniyeti, başarı takibi, yenileme ve büyüme</p>
+    <h3>📦 Kapsam</h3>
+    <p>Dedike müşteri yönetimi, KPI izleme, upsell fırsatları, ticket koordinasyonu</p>
+    <h3>🧰 Araçlar</h3>
+    <p>CRM, dashboard, müşteri içgörü araçları</p>
+    <h3>📡 İletişim Tarzı</h3>
+    <p>Periyodik müşteri toplantıları, stratejik görüşmeler</p>
+    <h3>📊 KPI Odakları</h3>
+    <p>NPS, yenileme oranı, kullanım oranı, churn</p>
+    <h3>🎯 Hedef Kitle</h3>
+    <p>Mevcut dedike müşteriler</p>
+    <h3>🏷️ Etiketler</h3>
+    <p>Customer Success, Dedicated Analysts</p>
+    <h3>✅ Görev ve Sorumluluklar</h3>
+    <ul>
+      <li>Müşteri takibi</li>
+      <li>Toplantı</li>
+      <li>Yenileme/upsell önerileri</li>
+      <li>Kullanım analizi</li>
+      <li>Dedike ticket koordinasyonu</li>
+    </ul>
+    <h3>🚫 Hariç Olanlar</h3>
+    <p>Teknik POC kurulumları, sistem log analizleri</p>
+    <h3>📌 Odak Alanları</h3>
+    <p>Müşteri memnuniyeti, kullanım etkinliği, churn azaltma</p>
+  </section>
+
+  <!-- Service Operations -->
+  <section id="service-operations">
+    <h2>Service Operations</h2>
+    <h3>🎯 Amaç</h3>
+    <p>Teknik destek, ürün kurulumları, işlem takibi</p>
+    <h3>📦 Kapsam</h3>
+    <p>SLA'li ticketlar, POC hazırlıkları, hata analizleri, L1/L2</p>
+    <h3>🧰 Araçlar</h3>
+    <p>Ticketing sistemleri, log analiz araçları</p>
+    <h3>📡 İletişim Tarzı</h3>
+    <p>Portal/Slack/mail üzerinden anlık teknik destek</p>
+    <h3>📊 KPI Odakları</h3>
+    <p>SLA uyumu, çözüm süresi, ilk yanıt süresi</p>
+    <h3>🎯 Hedef Kitle</h3>
+    <p>Dedike olmayan müşteriler + yeni POC müşterileri</p>
+    <h3>🏷️ Etiketler</h3>
+    <p>Support, POC, SLA</p>
+    <h3>✅ Görev ve Sorumluluklar</h3>
+    <ul>
+      <li>Ticket çözümü</li>
+      <li>POC hazırlama</li>
+      <li>Log analizi</li>
+      <li>Test süreçleri</li>
+    </ul>
+    <h3>🚫 Hariç Olanlar</h3>
+    <p>Kullanım içgörüsü sunumu, stratejik yönlendirme, upsell</p>
+    <h3>📌 Odak Alanları</h3>
+    <p>Teknik stabilite, hızlı çözüm, sistem sürekliliği</p>
+  </section>
+
+  <!-- Karşılaştırma Tablosu -->
+  <table>
+    <caption>📊 Karşılaştırma Tablosu</caption>
+    <thead>
+      <tr>
+        <th>Alan</th>
+        <th>Project Delivery</th>
+        <th>Customer Growth</th>
+        <th>Service Operations</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🎯 Amaç</td>
+        <td>Ürün teslimi, kapsam yönetimi</td>
+        <td>Müşteri memnuniyeti, başarı takibi, yenileme ve büyüme</td>
+        <td>Teknik destek, ürün kurulumları, işlem takibi</td>
+      </tr>
+      <tr>
+        <td>📦 Kapsam</td>
+        <td>Proje planı, takvim, roadmap koordinasyonu</td>
+        <td>Dedike müşteri yönetimi, KPI izleme, upsell fırsatları, ticket koordinasyonu</td>
+        <td>SLA'li ticketlar, POC hazırlıkları, hata analizleri, L1/L2</td>
+      </tr>
+      <tr>
+        <td>🧰 Araçlar</td>
+        <td>Jira, ClickUp, ürün yönetim sistemleri</td>
+        <td>CRM, dashboard, müşteri içgörü araçları</td>
+        <td>Ticketing sistemleri, log analiz araçları</td>
+      </tr>
+      <tr>
+        <td>📡 İletişim</td>
+        <td>Satış sonrası teknik yönlendirme</td>
+        <td>Periyodik toplantılar, stratejik görüşmeler</td>
+        <td>Portal/Slack/mail anlık destek</td>
+      </tr>
+      <tr>
+        <td>📊 KPI</td>
+        <td>Proje zamanında teslim, kapsam tamlığı</td>
+        <td>NPS, yenileme oranı, kullanım oranı, churn</td>
+        <td>SLA uyumu, çözüm süresi, ilk yanıt süresi</td>
+      </tr>
+      <tr>
+        <td>🎯 Hedef Kitle</td>
+        <td>Yeni onboard olan projeler</td>
+        <td>Mevcut dedike müşteriler</td>
+        <td>Dedike olmayan + POC müşterileri</td>
+      </tr>
+      <tr>
+        <td>🏷️ Etiketler</td>
+        <td>Teslimat, proje, kapsam</td>
+        <td>Customer Success, Analysts</td>
+        <td>Support, POC, SLA</td>
+      </tr>
+      <tr>
+        <td>✅ Görevler</td>
+        <td>Talep analizi, proje planı, teslimat takibi</td>
+        <td>Müşteri takibi, upsell önerileri, kullanım analizi</td>
+        <td>Ticket çözümü, log analizi, test süreçleri</td>
+      </tr>
+      <tr>
+        <td>🚫 Hariç</td>
+        <td>Teknik destek, memnuniyet takibi</td>
+        <td>POC kurulumları, log analizleri</td>
+        <td>Stratejik yönlendirme, upsell</td>
+      </tr>
+      <tr>
+        <td>📌 Odak Alanları</td>
+        <td>Zamanlama, proje verimliliği</td>
+        <td>Müşteri memnuniyeti, churn azaltma</td>
+        <td>Stabilite, hızlı çözüm</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
